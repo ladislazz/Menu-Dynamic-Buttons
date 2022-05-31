@@ -4,6 +4,9 @@ import Categories from './Categories';
 import items from './data';
 
 function App() {
+  const categories = items.map((item) => item.category);
+  const uniqueCategories = ['all', ...new Set(categories)];
+
   return (
     <main>
       <section className="menu section">
@@ -11,7 +14,7 @@ function App() {
           <h2>our menu</h2>
           <div className="underline"></div>
         </div>
-        <Categories items={items} />
+        <Categories uniqueCategories={uniqueCategories} />
         <Menu items={items} />
       </section>
     </main>
